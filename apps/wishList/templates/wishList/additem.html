@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'wishList/style.css' %}"media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+	{% if messages %}
+			<ul class="messages">
+			    {% for message in messages %}
+			    <li class="{{ message.tags }}" >{{ message }}</li>
+			    {% endfor %}
+			</ul>
+		{% endif %}
+	<a href="{% url 'wishList:index' %}">Home</a>
+	<a href="{% url 'loginRegister:logout' %}">Logout</a>
+	<form action="{% url 'wishList:add_new_wish' %}" method="post">
+	{% csrf_token %}
+		Create a New Wish List Item : 
+		Item/product :<input type="text" name="new_item">
+		<input type="submit" name="submit" value="Add">
+	</form>
+	
+</body>
+</html>
