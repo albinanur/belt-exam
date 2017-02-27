@@ -1,0 +1,15 @@
+input{
+	display: block;
+	margin-bottom: 10px;
+	width: 200px;
+	height: 20px;
+}
+
+.warning {
+	color: red;
+}
+
+.success {
+	color: green;
+}
+
